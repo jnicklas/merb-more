@@ -15,6 +15,9 @@ module Merb
         options[:orm] ||= Merb.orm
         options[:testing_framework] ||= Merb.test_framework
         options[:template_engine] ||= Merb.template_engine
+        Kernel.use_orm(options[:orm])
+        Kernel.use_test(options[:testing_framework])
+        Kernel.use_template_engine(options[:template_engine])
       end
     
       # Inside a template, wraps a block of code properly in modules, keeping the indentation correct

@@ -9,6 +9,11 @@ require 'templater/spec/helpers'
 
 Spec::Runner.configure do |config|
   config.include Templater::Spec::Helpers
+  config.before do
+    Merb.orm = :none
+    Merb.test_framework = :rspec
+    Merb.template_engine = :erb
+  end
 end
 
 shared_examples_for "named generator" do
